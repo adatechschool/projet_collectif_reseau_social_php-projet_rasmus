@@ -1,4 +1,31 @@
+<?php
+error_reporting(0);
 
+$msg = "";
+
+// If upload button is clicked ...
+if (isset($_POST['upload'])) {
+
+	$filename = $_FILES["uploadfile"]["name"];
+	$tempname = $_FILES["uploadfile"]["tmp_name"];
+	$folder = "./image/" . $filename;
+
+	$db = mysqli_connect("localhost", "root", "root", "social_network");
+
+	// Get all the submitted data from the form
+	$sql = "INSERT INTO user (image) VALUES ('$filename')";
+
+	// Execute query
+	mysqli_query($db, $sql);
+
+	// Now let's move the uploaded image into the folder: image
+	if (move_uploaded_file($tempname, $folder)) {
+		echo "<h3> Image uploaded successfully!</h3>";
+	} else {
+		echo "<h3> Failed to upload image!</h3>";
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +36,7 @@
 </head>
 <body>
     <h1 class="text-center">Welcome <?php echo $_SESSION['user_name'] ?></h1>
+<<<<<<< HEAD
     <form method="post" action="home.php">
 
     <div id="content">
@@ -25,6 +53,12 @@
     <div id="display-image">
 		<?php
     $query = " select image from user where id =(select max(id) from `user`)";
+=======
+    <form method="post" action="settings.php" enctype="multipart/form-data">
+
+    <?php
+     $query = " select image from user where id =(select max(id) from `user`)";
+>>>>>>> 9462741a8a3aa8e348fdd6e39c52ff89322545f3
 		$result = mysqli_query($db, $query);
 
 		while ($data = mysqli_fetch_assoc($result)) {
@@ -33,8 +67,20 @@
 
 		<?php
 		}
+<<<<<<< HEAD
 		?>
 	</div>
+=======
+		?> 
+      
+    <div class="form-group">
+				<input class="form-control" type="file" name="uploadfile" value="" />
+			</div>
+		
+		
+
+         <br>
+>>>>>>> 9462741a8a3aa8e348fdd6e39c52ff89322545f3
     <label for="nickname" class="text-center">Nickname</label>
     <input type="text" name="nickname"><br>
 
@@ -88,11 +134,12 @@
 
         <label for="teams" class="text-center">Teams</label>
     <input type="text" name="teams"><br>
+    <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
+    <button class="btn btn-primary" type="submit" name="END">END</button> 
+    <!-- Penser a lier le button END avec BD -->
 
-
-
-
-
-    
+   
+      </form>
+ 
 </body>
 </html>
