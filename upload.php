@@ -10,10 +10,10 @@ if (isset($_POST['upload'])) {
 	$tempname = $_FILES["uploadfile"]["tmp_name"];
 	$folder = "./image/" . $filename;
 
-	$db = mysqli_connect("localhost", "root", "", "geeksforgeeks");
+	$db = mysqli_connect("localhost", "root", "root", "social_network");
 
 	// Get all the submitted data from the form
-	$sql = "INSERT INTO image (filename) VALUES ('$filename')";
+	$sql = "INSERT INTO user (image) VALUES ('$filename')";
 
 	// Execute query
 	mysqli_query($db, $sql);
@@ -49,12 +49,12 @@ if (isset($_POST['upload'])) {
 	</div>
 	<div id="display-image">
 		<?php
-		$query = " select * from image ";
+		$query = " select image from user where id = (select max(id) from `user`)";
 		$result = mysqli_query($db, $query);
 
 		while ($data = mysqli_fetch_assoc($result)) {
 		?>
-			<img src="./image/<?php echo $data['filename']; ?>">
+			<img src="./image/<?php echo $data['image']; ?> "style= "height:200px;width:200px" >
 
 		<?php
 		}
