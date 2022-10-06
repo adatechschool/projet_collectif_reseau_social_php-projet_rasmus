@@ -1,4 +1,31 @@
+<?php
+error_reporting(0);
 
+$msg = "";
+
+// If upload button is clicked ...
+if (isset($_POST['upload'])) {
+
+	$filename = $_FILES["uploadfile"]["name"];
+	$tempname = $_FILES["uploadfile"]["tmp_name"];
+	$folder = "./image/" . $filename;
+
+	$db = mysqli_connect("localhost", "root", "root", "social_network");
+
+	// Get all the submitted data from the form
+	$sql = "INSERT INTO user (image) VALUES ('$filename')";
+
+	// Execute query
+	mysqli_query($db, $sql);
+
+	// Now let's move the uploaded image into the folder: image
+	if (move_uploaded_file($tempname, $folder)) {
+		echo "<h3> Image uploaded successfully!</h3>";
+	} else {
+		echo "<h3> Failed to upload image!</h3>";
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +36,27 @@
 </head>
 <body>
     <h1 class="text-center">Welcome <?php echo $_SESSION['user_name'] ?></h1>
-    <form method="post" action="home.php">
+    <form method="post" action="settings.php" enctype="multipart/form-data">
 
-    <input type="file">
+    <?php
+     $query = " select image from user where id =(select max(id) from `user`)";
+		$result = mysqli_query($db, $query);
 
+		while ($data = mysqli_fetch_assoc($result)) {
+		?>
+			<img src="./image/<?php echo $data['image']; ?>"style="height:250px;width:250px">
 
+		<?php
+		}
+		?> 
+      
+    <div class="form-group">
+				<input class="form-control" type="file" name="uploadfile" value="" />
+			</div>
+		
+		
+
+         <br>
     <label for="nickname" class="text-center">Nickname</label>
     <input type="text" name="nickname"><br>
 
@@ -67,11 +110,12 @@
 
         <label for="teams" class="text-center">Teams</label>
     <input type="text" name="teams"><br>
+    <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
+    <button class="btn btn-primary" type="submit" name="END">END</button> 
+    <!-- Penser a lier le button END avec BD -->
 
-
-
-
-
-    
+   
+      </form>
+ 
 </body>
 </html>
