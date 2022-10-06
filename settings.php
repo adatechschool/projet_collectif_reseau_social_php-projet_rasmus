@@ -11,9 +11,30 @@
     <h1 class="text-center">Welcome <?php echo $_SESSION['user_name'] ?></h1>
     <form method="post" action="home.php">
 
-    <input type="file">
+    <div id="content">
+		<form method="POST" action="" enctype="multipart/form-data">
+			<div class="form-group">
+				<input class="form-control" type="file" name="uploadfile" value="" />
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
+			</div>
+		</form>
+	</div>
+    
+    <div id="display-image">
+		<?php
+    $query = " select image from user where id =(select max(id) from `user`)";
+		$result = mysqli_query($db, $query);
 
+		while ($data = mysqli_fetch_assoc($result)) {
+		?>
+			<img src="./image/<?php echo $data['image']; ?>"style="height:250px;width:250px">
 
+		<?php
+		}
+		?>
+	</div>
     <label for="nickname" class="text-center">Nickname</label>
     <input type="text" name="nickname"><br>
 
