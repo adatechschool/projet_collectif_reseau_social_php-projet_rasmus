@@ -49,12 +49,12 @@ if (isset($_POST['upload'])) {
 	</div>
 	<div id="display-image">
 		<?php
-		$query = " select image from user where id = (select max(id) from `user`)";
+    $query = " select image from user where id =(select max(id) from `user`)";
 		$result = mysqli_query($db, $query);
 
 		while ($data = mysqli_fetch_assoc($result)) {
 		?>
-			<img src="./image/<?php echo $data['image']; ?> "style= "height:200px;width:200px" >
+			<img src="./image/<?php echo $data['image']; ?>"style="height:250px;width:250px">
 
 		<?php
 		}
