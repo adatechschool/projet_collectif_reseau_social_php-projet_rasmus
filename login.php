@@ -8,23 +8,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_name  = $_POST['user_name'];
     $pass_word  = $_POST['pass_word'];
 
-
     $query = "SELECT * FROM registration WHERE user_name = '$user_name' AND pass_word = '$pass_word'";
     $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_row($result);
+
     if ($result) {
         $num = mysqli_num_rows($result);
+        
         if ($num > 0) {
-            //echo " l'utilisateur deja existant";
+            echo " l'utilisateur deja existant";
             $login = 1;
             session_start();
-            $_SESSION['user_name'] = $user_name;
+            $_SESSION['id'] = $row[0];
+            $_SESSION['user_name'] = $row[1];
             header("location:home.php");
         } else {
             $invalid = 1;
         }
     }
 }
-
 
 ?>
 
@@ -42,26 +44,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 
-
-
-
     <?php
-    if ($login) {
+        if ($login) {
+            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>congratulation</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        };
+   
+        if ($invalid) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>congratulation</strong>.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    };
-
-    ?>
-
-    <?php
-    if ($invalid) {
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>password does not match...</strong>.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    };
+        <strong>password does not match...</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        };
 
     ?>
     <h1 class="text-center">Login</h1>

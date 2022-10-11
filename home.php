@@ -17,6 +17,8 @@ if(!isset($_SESSION['user_name'])){
 <h1 class="text-center">Welcome <?php echo $_SESSION['user_name'] ?></h1>
     <div class="container">
         <a href="logout.php" class="btn btn-primary">Logout</a>
+        <!-- a mettre lien vers le profile utilisateur et non les settings
+            <a href="settings.php" class="btn btn-primary">Settings</a> -->
     </div>
 </body>
-</html>
+</html> 
