@@ -20,6 +20,9 @@ if (!isset($_SESSION['email'])) {
     <link rel="stylesheet" type="text/css" href="style/home_style2.css">
 </head>
 <style>
+    body{
+		background: linear-gradient(45deg, #FC466B, #3F5EFB);
+	}
 
 #ownposts {
 		border: 5px solid #e6e6e6;

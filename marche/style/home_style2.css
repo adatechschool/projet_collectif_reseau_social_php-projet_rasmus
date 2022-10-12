@@ -1,4 +1,5 @@
 body{
+	overflow: scroll !important;
 	overflow-x: hidden;
 }
 #upload_image_button{
@@ -26,8 +27,7 @@ input[type="file"]{
 	max-width: 25%;
 }
 #insert_post{
-	background-color: #fff;
-	border: 2px solid #e6e6e6;
+	
 	padding: 40px 50px;
 }
 #posts{

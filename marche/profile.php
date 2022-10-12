@@ -9,6 +9,7 @@ if (!isset($_SESSION['email'])) {
 ?>
 <html>
 
+
 <head>
 	<?php
 	$user = $_SESSION['email'];
@@ -27,6 +28,9 @@ if (!isset($_SESSION['email'])) {
 	<link rel="stylesheet" type="text/css" href="style/home_style2.css">
 </head>
 <style>
+	body{
+		background: linear-gradient(45deg, #FC466B, #cd9ee5);
+	}
 	#cover-img {
 		height: 400px;
 		width: 100%;
@@ -69,7 +73,7 @@ if (!isset($_SESSION['email'])) {
 	}
 </style>
 
-<body>
+<body >
 	<div class="row">
 		<div class="col-sm-2">
 		</div>
@@ -167,7 +171,7 @@ if (!isset($_SESSION['email'])) {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-2">
+		<div class="col-sm-2" style="color:transparent">
 		</div>
 		<div class="col-sm-2" style="background-color: #e6e6e6;text-align: center;left: 0.8%;border-radius: 5px;">
 			<?php
@@ -225,6 +229,7 @@ if (!isset($_SESSION['email'])) {
 
 			</div>
 			</div>
+			</div><br>
 			";
 				} else if (strlen($conntent) >= 1 && strlen($upload_image) >= 1) {
 					

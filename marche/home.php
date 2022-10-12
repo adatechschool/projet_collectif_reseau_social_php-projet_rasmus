@@ -25,9 +25,14 @@ if(!isset($_SESSION['email'])){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/home_style2.css">
 </head>
-<body>
+<style>
+	body{
+		background: linear-gradient(45deg, #FC466B, #3F5EFB);
+	}
+</style>
+<body >
 <div class="row">
-	<div id="insert_post" class="col-sm-12">
+	<div id="insert_post" class="col-sm-12" >
 		<center>
 		<form action="home.php?id=<?php echo $user_id; ?>" method="post" id="f" enctype="multipart/form-data">
 		<textarea class="form-control" id="content" rows="4" name="post_content" placeholder="What's on your mind?"></textarea><br>

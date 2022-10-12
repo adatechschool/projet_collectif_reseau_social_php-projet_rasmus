@@ -6,6 +6,7 @@ include("includes/header.php");
 if(!isset($_SESSION['email'])){
 	header("location: index.php");
 }
+
 ?>
 <html>
 <head>
@@ -19,6 +20,11 @@ if(!isset($_SESSION['email'])){
 	<link rel="stylesheet" type="text/css" href="style/home_style2.css">
 </head>
 <style>
+    body{
+		background: linear-gradient(45deg, #cd9ee5, #3F5EFB);
+        height:100vh;
+        width: 100%;
+	}
     #scroll_messages{
         max-height: 500px;
         overflow: scroll;
@@ -44,8 +50,8 @@ if(!isset($_SESSION['email'])){
     width:45%;
     padding:2.5px;
     font-size:16px;
-    border-radius: 3px; 
-    float:right;
+    border-radius: 23px; 
+    float:left;
     margin-bottom: 5px;
 
 }
@@ -55,11 +61,12 @@ if(!isset($_SESSION['email'])){
     width:45%;
     padding:2.5px;
     font-size:16px;
-    border-radius: 3px;
+    border-radius: 23px;
     float:right;
     margin-bottom: 5px;
 
 }
+
 </style>
 <body>
 <div class="row">
@@ -111,7 +118,7 @@ $user_from_name = $row['user_name'];
     <div class="load_msg" id="scroll_messages">
         <?php
 
-        $sel_msg="SELECT * from user_messages where (user_to='$user_to_msg' and user_from='$user_from_msg') or (user_from='$user_from_msg' and user_to='$user_to_msg') order by 1 asc ";
+        $sel_msg="SELECT * from user_messages where (user_to='$user_to_msg' and user_from='$user_from_msg') or (user_from='$user_to_msg' and user_to='$user_from_msg') order by 1 asc ";
         $run_msg=mysqli_query($conn,$sel_msg);
 
         while($row_msg=mysqli_fetch_array($run_msg)){
@@ -125,13 +132,13 @@ $user_from_name = $row['user_name'];
                 <?php
                 if($user_to==$user_to_msg AND $user_from==$user_from_msg){
                     echo"
-                    <div class='message' id='blue' data-toggle='tooltip' title='$msg_date'>
+                    <div class='imessage' id='blue' data-toggle='tooltip' title='$msg_date'>
                     $msg_body
                     </div><br><br><br>
                     ";
                 }else if($user_to==$user_from_msg AND $user_from==$user_to_msg){
                     echo"
-                    <div class='message' id='green' data-toggle='tooltip' title='$msg_date'>
+                    <div class='imessage' id='green' data-toggle='tooltip' title='$msg_date'>
                     $msg_body
                     </div><br><br><br>
                     ";

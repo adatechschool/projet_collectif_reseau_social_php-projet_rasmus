@@ -18,7 +18,12 @@ if(!isset($_SESSION['email'])){
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/home_style2.css">
 </head>
-<body>
+<style>
+    body{
+		background: linear-gradient(45deg, #FC466B, #3F5EFB);
+	}
+</style>
+<body style="background-color:#cd9ee5;">
 <div class="row">
     <div class="col-sm-12">
         <center>

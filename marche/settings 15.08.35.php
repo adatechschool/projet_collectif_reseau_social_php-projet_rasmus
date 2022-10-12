@@ -1,19 +1,13 @@
 <?php
 session_start();
-error_reporting(0);
-
-
+echo session_id();
+echo get_current_user();
+echo $_SESSION['user_id'];
 $msg = "";
+
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
-
-    $row = $query->fetch(PDO::FETCH_ASSOC);
-    $select= "select * from registration";
-    $connection =mysqli_query($db, $select);
-    $row=mysqli_fetch_array($connection);
-    $user_id=$row['user_id'];
-    echo $user_id;
 
     @$gender = $_POST['gender'];
     @$orientation = $_POST['orientation'];
@@ -23,8 +17,7 @@ if (isset($_POST['upload'])) {
     //$checkbox1= $_POST['sport'];
     //$sport = $_POST['sport'];
     $teams = $_POST['teams'];
-    $user = $_SESSION['email'];
-    // Connect to Database
+       // Connect to Database
     $db = mysqli_connect("localhost", "root", "root", "social_network");
 
     // Get all the submitted data from the form

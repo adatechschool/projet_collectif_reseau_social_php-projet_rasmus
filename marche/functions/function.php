@@ -245,26 +245,57 @@ function search_user(){
 		$image=$row_user["image"];
 		echo"
 		<div class='row'>
-		<div class='col-sm-3'>
-		</div>
-		<div class='col-sm-6'>
-		<div class='row' id='find_people'>
-		<div class='col-sm-4'>
-		<a href='user_profile.php?u_id=$user_id'>
-		<img src='users/$image' style='float:left;margin:1px'title='$user_name' width='150px' height='140px'/>
-		</a>
-		</div><br><br>
-		<div class='col-sm-6'>
-		<a style='text-decoration:none; cursor:pointer;color:#3897f0'  href='user_profile.php?u_id=$user_id'>
-        <strong><h2>$first_name $last_name
-		</h2></strong></a>
-		</div>
-		<div class='col-sm-3'>
+		   <div class='col-sm-3'>
+		    </div>
+		    <div class='col-sm-6'>
+		        <div class='row' id='find_people'>
+		            <div class='col-sm-4'>
+		                <a href='user_profile.php?u_id=$user_id'>
+		                    <img src='users/$image' style='float:left;margin:1px'title='$user_name' width='150px' height='140px'/>
+		                </a>
+		            </div><br><br>
+		        <div class='col-sm-6'>
+		            <a style='text-decoration:none; cursor:pointer;color:#3897f0'  href='user_profile.php?u_id=$user_id'>
+                       <strong><h2>$first_name $last_name
+		            </h2></strong></a>
+		    </div>
+		    <div class='col-sm-3'>
 		</div>
 		</div> 
 		</div>
 		<div class='col-sm-4'>
 		</div>
+		</div>
+		";
+	}
+}
+function random_user(){
+	global $conn;
+	if(isset($_GET['search_user_btn'])){
+		$search_query=htmlentities($_GET['search_user']);
+		$get_user= "SELECT * from registration where first_name like '%$search_query%' OR last_name like '%$search_query%' OR user_name like '%$search_query%' ";
+	}else{
+		$get_user= "SELECT * FROM registration";
+	}
+	$run_user=mysqli_query($conn, $get_user);
+	while($row_user=mysqli_fetch_array($run_user)){
+		$user_id=$row_user["user_id"];
+		$first_name=$row_user["first_name"];
+		$last_name=$row_user["last_name"];
+		$user_name=$row_user["user_name"];
+		$image=$row_user["image"];
+		echo"
+		<div class='row'>
+		   <div class='col-sm-3'>
+		    </div>
+		    <div class='col-sm-6'>
+		        <div class='row' id='find_people'>
+		            <div class='col-sm-4'>
+		                <a href='user_profile.php?u_id=$user_id'>
+		                    <img src='users/$image' style='float:left;margin:1px'title='$user_name' width='150px' height='140px'/>
+		                </a>
+		            </div><br><br>
+		        <div class='col-sm-6'>
 		</div>
 		";
 	}
