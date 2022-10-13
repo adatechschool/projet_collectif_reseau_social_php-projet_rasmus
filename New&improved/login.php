@@ -11,6 +11,9 @@
 <style>
 	body{
 		overflow-x: hidden;
+		height:100vh;
+		width:100%;
+		
 		
 		background: linear-gradient(45deg, #FC466B, #3F5EFB);
 	
@@ -52,7 +55,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="well">
-			<center><h1 style="color: white;">Coding Cafe</h1></center>
+			<center><h1 style="color: white;">Match N Set</h1></center>
 		</div>
 	</div>
 </div>
@@ -60,7 +63,7 @@
 	<div class="col-sm-12">
 		<div class="main-content">
 			<div class="header">
-				<h3 style="text-align: center;"><strong>Login to Coding Cafe</strong></h3>
+				<h3 style="text-align: center;"><strong>Login to Match N Set</strong></h3>
 			</div>
 			<div class="l-part">
 				<form action="" method="post">

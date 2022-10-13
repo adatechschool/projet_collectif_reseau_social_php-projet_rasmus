@@ -103,7 +103,7 @@ $user_from_name = $row['user_name'];
         echo"
 
         <div class='container-fluid'>
-        <a style='text-decoration:none;cursor:pointer;color:#3897f0' href='messages.php?u_id=$user_id'>
+        <a style='text-decoration:none;cursor:pointer;color:#white' href='messages.php?u_id=$user_id'>
         <img src='users/$image' class='img-circle' width='90px' height='80px' title='$user_name'>
         <strong>&nbsp $first_name $last_name</strong><br><br>
 
@@ -115,7 +115,7 @@ $user_from_name = $row['user_name'];
     ?>
    </div>
    <div class="col-sm-6">
-    <div class="load_msg" id="scroll_messages">
+    <div class="load_msg" style="color:#fff;" id="scroll_messages">
         <?php
 
         $sel_msg="SELECT * from user_messages where (user_to='$user_to_msg' and user_from='$user_from_msg') or (user_from='$user_to_msg' and user_to='$user_from_msg') order by 1 asc ";

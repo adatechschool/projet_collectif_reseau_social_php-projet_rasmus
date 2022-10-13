@@ -1,0 +1,12 @@
+.jumbotron{
+    background-color: rgb(173, 84, 255);
+}
+.jumbotron h1{
+    color:antiquewhite;
+}
+body{
+    background: linear-gradient(45deg, #cd9ee5, #3F5EFB);
+    height: 100%;
+    width:100%
+
+}

@@ -7,13 +7,15 @@ if(isset($_POST['sign_up'])){
     $last_name = $_POST['last_name'];
     $pass_word = $_POST['pass_word'];
     $cpassword = $_POST['cpassword'];
+    @$orientation = $_POST['orientation'];
+    $teams = $_POST['teams'];
     $email = $_POST['email'];
     $birthday = htmlentities(mysqli_real_escape_string($connn,$_POST['birthday']));
     $status="verified";
     $posts="no";
-    $city="city";
+    $city=$_POST['city'];
     $orientation="female";
-    $teams= "teams";
+    $teams= $_POST['teams'];
 	$country = htmlentities(mysqli_real_escape_string($connn,$_POST['country']));
 	$gender = htmlentities(mysqli_real_escape_string($connn,$_POST['gender']));
     $image="profile.png";

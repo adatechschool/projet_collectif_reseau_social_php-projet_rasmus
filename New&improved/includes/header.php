@@ -47,6 +47,7 @@ include("./logined.php");
 	       	<li><a href="home.php">Home</a></li>
 			<li><a href="members.php">Find People</a></li>
 			<li><a href="match.php">Match</a></li>
+			<li><a href="news.php">News</a></li>
 			<li><a href="messages.php?u_id=new">Messages</a></li>
 			
 
