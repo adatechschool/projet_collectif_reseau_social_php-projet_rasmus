@@ -3,7 +3,7 @@
 /* font-family: 'Abril Fatface', cursive;
 font-family: 'Open Sans', sans-serif; */
 body {
-  background: linear-gradient(45deg, #FC466B, #3F5EFB);
+  background:  linear-gradient(45deg,rgb(165,92, 153),rgb(112,81,186));
   height: 100vh;
   font-family: arial, sans-serif;
   display: flex;
@@ -60,7 +60,7 @@ opacity: 1;
 }
 .home h1 {
   margin-bottom: 80px;
-  color: rgb(234, 74, 74);
+  color: rgb(231, 221, 221);
   font-size: 15px ;
   text-align: center;
 }
@@ -187,7 +187,7 @@ a.link-copy {
 }
 .form-area-signup {
   /* display: none; */
-  opacity: 0;
+  opacity: 0.9;
   transition: all 0.4s ease-in 0.2s;
 }
 .form-area-signin {
@@ -247,7 +247,6 @@ a.link-copy {
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: flex-end;
-  background-image: url("https://i.pinimg.com/564x/cc/51/8a/cc518a8b056431fb434240676d1e77fb.jpg");
   background-size: 70%;
   background-repeat: no-repeat;
   background-position: 235% 50%;
