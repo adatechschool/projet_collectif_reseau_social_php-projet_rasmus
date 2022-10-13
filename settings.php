@@ -20,12 +20,13 @@ if (isset($_POST['upload'])) {
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "./image/" . $filename;
+    $id_registration = $_SESSION['id'];
 
     // Connect to Database
     $db = mysqli_connect("localhost", "root", "root", "social_network");
 
     // Get all the submitted data from the form
-    $sql = "INSERT INTO user (teams,orientation,gender,image,nickname,birthday,description,country,city) VALUES ('$teams','$orientation','$gender','$filename','$nickname','$birthday','$description','$country','$city')";
+    $sql = "INSERT INTO social_network.user (id_registration,teams,orientation,gender,image,nickname,birthday,description,country,city) VALUES ('$id_registration','$teams','$orientation','$gender','$filename','$nickname','$birthday','$description','$country','$city')";
     
     // Execute query
     mysqli_query($db, $sql);
@@ -35,8 +36,10 @@ if (isset($_POST['upload'])) {
         echo "<h3> Hello $nickname. Your profile has been uploaded successfully!</h2>";
     } else {
         echo "<h3> Failed to upload your image!</h2>";
-    }           
+    } 
+    header("location:edit_account.php");          
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +60,7 @@ if (isset($_POST['upload'])) {
             <label for="nickname" class="text-center">Nickname</label>
             <input type="text" name="nickname"><br>
         </div>
-        <br>
+            <br>
 
         <div class="gender">
             How do you identify:
@@ -68,17 +71,17 @@ if (isset($_POST['upload'])) {
             <input type="radio" id="gender" name="gender" value="non">
             <label for="non">Non-binary</label><br>
 
-            <?php
-                //Now post the radio boxes 
+                <?php
+                    //Now post the radio boxes 
 
-                if(isset($_POST['upload'])){
-                    if(!empty($_POST['gender'])) {
-                        echo '  ' . $_POST['gender'];
-                    } else {
-                        echo 'Please select the value.';
-                    }
-                    }
-            ?>
+                    if(isset($_POST['upload'])){
+                        if(!empty($_POST['gender'])) {
+                            echo '  ' . $_POST['gender'];
+                        } else {
+                            echo 'Please select the value.';
+                        }
+                        }
+                ?>
         </div>
         <br>
 
@@ -99,13 +102,13 @@ if (isset($_POST['upload'])) {
         <br>
 
         <div class="orientation">
-            Sexual orientation:
+            What are you looking for:
             <input type="radio" id="orientation" name="orientation" value="female">
-            <label for="female">Female</label>
+            <label for="female">Women</label>
             <input type="radio" id="orientation" name="orientation" value="male">
-            <label for="male">Male</label>
+            <label for="male">Man</label>
             <input type="radio" id="orientation" name="orientation" value="non">
-            <label for="non">Bisexual</label><br>
+            <label for="non">Both</label><br>
             
             <?php
                 //Now post the radio boxes 
@@ -207,11 +210,12 @@ if (isset($_POST['upload'])) {
                 ?>
                     <img src="./image/<?php echo $data['image']; ?>" style="height:250px;width:250px">;
 
-                    <!--<a href="logout.php" class="btn btn-primary">Logout</a>-->
+                    
 
                 <?php
                 }
             ?>
+            <a href="logout.php" class="btn btn-primary">Logout</a>
             </div>    
         </div>
 

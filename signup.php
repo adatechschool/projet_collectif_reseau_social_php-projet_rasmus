@@ -5,29 +5,40 @@ $invalid = 0;
 //$mail=0;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include 'connect.php';
-    $user_name  = $_POST['user_name'];
-    $pass_word  = $_POST['pass_word'];
-    $cpassword  = $_POST['cpassword'];
-    $mail  = $_POST['mail'];
+
+include 'connect.php';
+$user_name  = $_POST['user_name'];
+$pass_word  = $_POST['pass_word'];
+$cpassword  = $_POST['cpassword'];
+$mail  = $_POST['mail'];
 
 
 
     $query = "SELECT * FROM registration WHERE user_name = '$user_name'";
     $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_row($result);
+   
     if ($result) {
         $num = mysqli_num_rows($result);
         if ($num > 0) {
-            //echo " l'utilisateur deja existant";
+            echo " l'utilisateur deja existant";
             $user = 1;
         } else {
             if ($pass_word == $cpassword) {
-                $query = "INSERT INTO registration(user_name,pass_word,mail) VALUES ('$user_name','$pass_word','$mail')";
+                $query1 = "INSERT INTO registration(user_name,pass_word,mail) VALUES ('$user_name','$pass_word','$mail')";
+                $result2 = mysqli_query($conn, $query1);
                 $result = mysqli_query($conn, $query);
+                $row = mysqli_fetch_row($result);
+                session_start();
+                $_SESSION['id'] = $row[0];
+                $_SESSION['user_name'] = $row[1];
+
+                var_dump(($row));
+            
                 if ($result) {
                     //echo " signup successful";
                     $success = 1;
-                    header("location:home.php");
+                    header("location:settings.php");
                 };
             } else {
                 $invalid = 1;
