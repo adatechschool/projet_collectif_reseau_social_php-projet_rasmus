@@ -29,7 +29,7 @@ if (!isset($_SESSION['email'])) {
 </head>
 <style>
 	body{
-		background: linear-gradient(45deg, #FC466B, #cd9ee5);
+		background:  linear-gradient(45deg,rgb(165,92, 153),rgb(71,88,214));
 	}
 	#cover-img {
 		height: 400px;

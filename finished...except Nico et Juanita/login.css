@@ -3,7 +3,7 @@
 /* font-family: 'Abril Fatface', cursive;
 font-family: 'Open Sans', sans-serif; */
 body {
-  background: linear-gradient(45deg, #FC466B, #3F5EFB);
+  background:  linear-gradient(45deg,rgb(165,92, 153),rgb(112,81,186));
   height: 100vh;
   font-family: arial, sans-serif;
   display: flex;
@@ -60,7 +60,7 @@ opacity: 1;
 }
 .home h1 {
   margin-bottom: 80px;
-  color: rgb(234, 74, 74);
+  color: rgb(231, 221, 221);
   font-size: 15px ;
   text-align: center;
 }

@@ -41,11 +41,7 @@ if(isset($_POST['sign_up'])){
                 
                 };
             }
-            } else {
-                echo '<script>alert("your passwords dont match ")</script>';
-                
-                
-            }
+            } 
         
     
    

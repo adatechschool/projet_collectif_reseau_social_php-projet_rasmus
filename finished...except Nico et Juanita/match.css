@@ -5,9 +5,8 @@
   }
   
   body {
-    background: #cd9ee5;
     font-family: sans-serif;
-    color:linear-gradient(45deg,#cd9ee5,rgb(74, 207, 255));
+		background:  linear-gradient(45deg,rgb(165,92, 153),rgb(71,88,214));
   }
   
   .tinder {

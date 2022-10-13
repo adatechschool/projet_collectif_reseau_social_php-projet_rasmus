@@ -21,7 +21,7 @@ if(!isset($_SESSION['email'])){
 </head>
 <style>
     body{
-		background: linear-gradient(45deg, #cd9ee5, #3F5EFB);
+		background:  linear-gradient(45deg,rgb(165,92, 153),rgb(71,88,214));
         height:100vh;
         width: 100%;
 	}

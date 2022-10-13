@@ -12,7 +12,7 @@
 <style>
 	body {
 		overflow-x: hidden;
-		background:  linear-gradient(45deg,rgb(74, 207, 255),#cd9ee5);
+		background:  linear-gradient(45deg,rgb(165,92, 153),rgb(71,88,214));
 
 
 	}
@@ -44,11 +44,7 @@
 <body>
 	<div class="row">
 		<div class="col-sm-12">
-			<div class="well">
-				<center>
-					<h1 style="color: white;">Match N SET</h1>
-				</center>
-			</div>
+			
 		</div>
 	</div>
 	<div class="row">

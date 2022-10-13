@@ -18,10 +18,60 @@ if(!isset($_SESSION['email'])){
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </head>
-<body style="background-color:blueviolet">
+<style>
+    .news{
+        margin:0px;
+        margin-bottom: 12px;
+        margin-left:10px;
+    }
+    .news h2{
+        margin-left: 700px;
+        background:linear-gradient(45deg,rgb(225,131,210),rgb(123,71,214));
+
+    }
+    .news h3{
+        margin-left: 700px;
+
+    }
+    body{
+		background:  linear-gradient(45deg,rgb(165,92, 153),rgb(71,88,214));
+	}
+
+    .header{
+        height:200px;
+        width: 980px;
+        margin-left: 200px;
+        font-size: 7vw;
+        background:linear-gradient(45deg,rgb(225,131,210),rgb(123,71,214));
+        position:center;
+        text-align:center;
+    }
+    </style>
+<body >
+    <h1 class="header"><center>Todays Sports News</center></h1>
+
+<div class="news">
+<h2>In the world of sports PSG loses again</h2>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CGFgHjeEkbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+</div>
+
+<div class="news">
+<h2>In the world of sports PSG loses again</h2>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/5TESaDL2Qao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="news">
+    <h2>In the world of sports PSG loses again</h2>
+
         <iframe width="560" height="315" src="https://www.youtube.com/embed/cHxA84byNhE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+    <div class="news">
+    <h2>In the world of sports PSG loses again</h2>
+
             <iframe width="560" height="315" src="https://www.youtube.com/embed/YIl5lymLmqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
 </body>
 </html>

@@ -13,18 +13,18 @@
 		overflow-x: hidden;
 		height:100vh;
 		width:100%;
-		
-		
-		background: linear-gradient(45deg, #FC466B, #3F5EFB);
+		background:  linear-gradient(45deg,rgb(165,92, 153),rgb(71,88,214));
 	
 	}
 	.main-content{
+
 		width: 50%;
-		height: 40%;
+		height: 80%;
 		margin: 10px auto;
 		background-color: #fff;
 		border: 2px solid #e6e6e6;
-		padding: 40px 50px;
+		padding: 42px 35px;
+		text-align: center;
 	}
 	.header{
 		border: 0px solid #000;
@@ -52,14 +52,8 @@
 	}
 </style>
 <body>
-<div class="row">
-	<div class="col-sm-12">
-		<div class="well">
-			<center><h1 style="color: white;">Match N Set</h1></center>
-		</div>
-	</div>
-</div>
-<div class="row">
+
+<div class="row" >
 	<div class="col-sm-12">
 		<div class="main-content">
 			<div class="header">

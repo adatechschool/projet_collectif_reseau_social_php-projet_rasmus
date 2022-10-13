@@ -17,8 +17,6 @@ include("includes/connection.php");
 			$_SESSION['email'] = $email;
 
 			echo "<script>window.open('home.php', '_self')</script>";
-		}else{
-			echo"<script>alert('Your Email or Password is incorrect')</script>";
 		}
 	}
 ?>
